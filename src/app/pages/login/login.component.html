@@ -1,0 +1,53 @@
+<div class="container">
+
+    <div class="row">
+
+<div class="col-md-6 offset-md-3">
+    <mat-card class="mt-5">
+
+        <div class="container text-center">
+    
+    
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    
+    
+                
+    
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Username </mat-label>
+                            <input matInput type="text" formControlName="username" required name="username">
+                        </mat-form-field>
+    
+                   
+                  
+    
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" required formControlName="password" name="password">
+                        </mat-form-field>
+                   
+    
+               
+    
+    
+                <button type="submit" mat-raised-button color="primary" class="btn  btn-block m-2 ">
+                    <span>Log In</span>
+                </button>
+    
+            </form>
+    
+    
+    
+    
+        </div>
+    <mat-divider>
+    </mat-divider>
+
+    <button routerLink="/register"  class="btn btn-success  btn-block mt-3">
+       Create New Account
+    </button>
+
+    </mat-card>  
+</div>
+</div>
+</div>

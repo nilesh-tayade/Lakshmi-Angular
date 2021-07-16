@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './pages/home/home.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { LoginComponent } from './pages/login/login.component';
-import { HeaderModule } from './header/header.module';
+import { AdminRoutingModule } from './admin-routing.module';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { UserListComponent } from './user-list/user-list.component';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule}  from '@angular/common/http'
@@ -24,18 +20,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    RegisterComponent,
-    LoginComponent
-    
+    AdminDashboardComponent,
+    UserListComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HeaderModule,
-    HttpClientModule,
+    CommonModule,
+    AdminRoutingModule,
     MatButtonModule,
     MatListModule,
     MatCardModule,
@@ -48,8 +38,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  ]
 })
-export class AppModule { }
+export class AdminModule { }
