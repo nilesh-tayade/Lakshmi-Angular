@@ -45,7 +45,7 @@ loginUser()
   this.userService.loginUser(this.loginForm.value).subscribe(data=>{
     this.userService.user=data;
     console.log(data);
-    Swal.fire('Success...', 'You have Login Successfully', 'success')
+    Swal.fire('Success...', 'You have Login Successfully', 'success');
     this.userService.loginUserInApp(data);
 
     this.navigate();

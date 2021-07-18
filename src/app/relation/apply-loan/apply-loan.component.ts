@@ -4,24 +4,23 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2'
 
-
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-apply-loan',
+  templateUrl: './apply-loan.component.html',
+  styleUrls: ['./apply-loan.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class ApplyLoanComponent implements OnInit {
 
   constructor(private fb:FormBuilder,private userService:UserService,private router:Router){}
   ngOnInit(): void {
     this.createLoginForm();
   }
 
-  registerForm:FormGroup;
+  loanForm:FormGroup;
   
   createLoginForm()
   {
-    this.registerForm=this.fb.group({
+    this.loanForm=this.fb.group({
       username:['',Validators.required],
       password:['',Validators.required],
 
@@ -41,26 +40,27 @@ export class RegisterComponent implements OnInit {
 
 onSubmit()
 {
-console.log(this.registerForm.value);
-this.loginUser();
+console.log(this.loanForm.value);
+this.applyLoan();
 
 }
 
 reset()
 {
-  this.registerForm.reset();
+  this.loanForm.reset();
   
 }
 
-loginUser()
+applyLoan()
 {
-  this.userService.RegisteUser(this.registerForm.value).subscribe(data=>{
+  this.userService.RegisteUser(this.loanForm.value).subscribe(data=>{
     console.log(data);
-    Swal.fire('Success...', 'Applicant Registerd Successfully', 'success')
+    Swal.fire('Success...', 'Loan Applied Succesfully Successfully', 'success')
 this.router.navigate(['/login']);
 
   },(error)=>{
     Swal.fire('Oops...', 'Something went wrong!', 'error')
   })
 }
+
 }

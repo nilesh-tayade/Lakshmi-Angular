@@ -1,3 +1,83 @@
-<div class=" container jumbotron">
-    <h1 class="text-center text-primary mt-3">Operation Executive DashBoard working</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="container">
+                <mat-card>
+
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action active" routerLink="/admin">
+                            Operations
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action"
+                            routerLink="user-list">Files
+                        </button>
+
+                    </div>
+
+
+                </mat-card>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="col-md-9">
+
+            <div class="container">
+
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>Firstname</td>
+                            <td>Lastname</td>
+                            <td>Credit Score</td>
+                            <td>Credit Ok</td>
+                            <td>Loan Disbursed</td>
+                            <td>Loan Approved</td>
+                            <td>File Verified</td>
+                            <td>Rejected</td>
+                            <td>Calculate Credit Score</td>
+                            <td>Aprove Credit Score</td>
+
+
+                        </tr>
+
+
+                        <tr *ngFor="let file of files">
+                            <th>{{file.id}}</th>
+                            <td *ngIf="file.applicant.person">{{file.applicant.person.firstname}}</td>
+                            <td *ngIf="file.applicant.person">{{file.applicant.person.lastname}}</td>
+                            <td>{{file.creditScore}}</td>
+                            <td>{{file.creditOk}}</td>
+                            <td>{{file.loanDisbursed}}</td>
+
+                            <td>{{file.loanApproved}}</td>
+                            <td>{{file.documentVerified}}</td>
+
+                            <td>{{file.loanRejected}}</td>
+
+                            <td>
+                                <button class="btn btn-sm btn-primary" (click)="getCreditScore(file)"> Get Credit score
+                                </button>
+
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-success" (click)="approveCreditScore(file)"> Approve Credit
+                                    Score </button>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+
+    </div>
 </div>

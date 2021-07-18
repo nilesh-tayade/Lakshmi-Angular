@@ -1,4 +1,35 @@
-<div class=" container jumbotron">
- 
- 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div >
+        <mat-card>
+
+          <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action active" routerLink="/admin">
+              Admin
+            </button>
+            <button type="button" class="list-group-item list-group-item-action" routerLink="files">All Files
+            </button>
+            <button type="button" class="list-group-item list-group-item-action" routerLink="applicant-list">Applicant-List
+            </button>
+
+
+          </div>
+
+
+        </mat-card>
+
+      </div>
+
+
+    </div>
+    <div class="col-md-9 container-fluid">
+      <mat-card>
+        <router-outlet></router-outlet>
+
+
+      </mat-card>
+    </div>
+
+  </div>
 </div>

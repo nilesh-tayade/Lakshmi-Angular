@@ -1,0 +1,35 @@
+<table class="table">
+    <tbody>
+      <tr>
+        <th >Id</th>
+        <td>Firstname</td>
+        <td>Lastname</td>
+        <td>Email</td>
+        <td>Mobile</td>
+        <td>Adhar</td>
+        <td>Pan</td>
+ 
+            <td>Actions</td>
+
+      </tr>
+
+     
+      <tr  *ngFor="let applicant of applicants">
+        <th >{{applicant.id}}</th>
+        <td>{{applicant.person.firstname}}</td>
+        <td>{{applicant.person.lastname}}</td>
+        <td>{{applicant.person.email}}</td>
+        <td>{{applicant.person.mobile}}</td>
+        <td>{{applicant.aadhar}}</td>
+
+        <td>{{applicant.pan}}</td>
+     
+
+        <td>
+<button mat-raised-button color="accent"  routerLink="/header/relation/apply-loan/{{applicant.id}}"> Apply Loan  </button>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>

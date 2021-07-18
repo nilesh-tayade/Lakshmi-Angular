@@ -13,6 +13,8 @@ export const contentroutes: Routes = [
     {path:'credit-manager',loadChildren:() => import('src/app/credit-manager/credit-manager.module').then(m => m.CreditManagerModule),canActivate:[IsLoggedInGuard]},
     {path:'operation',loadChildren:() => import('src/app/operation/operation.module').then(m => m.OperationModule),canActivate:[IsLoggedInGuard]},
     {path:'relation',loadChildren:() => import('src/app/relation/relation.module').then(m => m.RelationModule),canActivate:[IsLoggedInGuard,IsRelationshipExecutiveGuard]},
+    {path:'caller-head',loadChildren:() => import('src/app/technical-caller-head/technical-caller-head.module').then(m => m.TechnicalCallerHeadModule),canActivate:[IsLoggedInGuard,IsRelationshipExecutiveGuard]},
+    {path:'caller-head',loadChildren:() => import('src/app/technical-caller-lead/technical-caller-lead.module').then(m => m.TechnicalCallerLeadModule),canActivate:[IsLoggedInGuard,IsRelationshipExecutiveGuard]},
 
     
     
