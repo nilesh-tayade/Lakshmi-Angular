@@ -4,13 +4,15 @@
             <th >Id</th>
             <td>Firstname</td>
             <td>Lastname</td>
+            <td>Product</td>
             <td>Loan Amount</td>
-            <td>Civil Ok</td>
-            <td>Loan Disbursed</td>
-            <td>Loan Approved</td>
+
+            <td>Civil Ok</td>           
             <td>File Verified</td>
+            <td>Loan Approved</td>
+            <td>Loan Disbursed</td>
+
                 <td>Rejected</td>
-                <td>Actions</td>
 
           </tr>
 
@@ -19,19 +21,18 @@
             <th >{{file.id}}</th>
             <td>{{file.applicant.person.firstname}}</td>
             <td>{{file.applicant.person.lastname}}</td>
-            <td>{{file.loanAmount}}</td>
-            <td>{{file.creditOk}}</td>
-            <td>{{file.loanDisbursed}}</td>
+            <td *ngIf="file.electronicItem !=null">{{file.electronicItem.productName}}</td>
+            <td *ngIf="file.electronicItem !=null">{{file.electronicItem.price}}</td>
 
-            <td>{{file.loanApproved}}</td>
-            <td>{{file.documentVerified}}</td>
+            <td >{{file.creditOk ==true ? 'Approved' : 'Pending'}}</td>
+            <td> {{file.documentVerified ==true ? 'Approved' : 'Pending'}} </td>
 
-            <td>{{file.loanRejected}}</td>
+          
+            <td> {{file.loanApproved ==true ? 'Approved' : 'Pending'}}</td>
+            <td>{{file.loanDisbursed ==true ? 'Disbursed' : 'Pending'}}</td>
 
-            <td>
-<button (click)="send(file.id)"> Send OE </button>
+            <td>{{file.loanRejected ==true ? 'Rejected' : '--'}}</td>
 
-            </td>
           </tr>
 
         </tbody>

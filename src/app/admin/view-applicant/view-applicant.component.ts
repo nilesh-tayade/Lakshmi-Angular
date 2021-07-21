@@ -5,18 +5,18 @@ import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  selector: 'app-view-applicant',
+  templateUrl: './view-applicant.component.html',
+  styleUrls: ['./view-applicant.component.css']
 })
-export class UserListComponent implements OnInit {
+export class ViewApplicantComponent implements OnInit {
 
   ngOnInit(): void {
-    this.getAlluser();
+    this.getAllAppliant();
   }
 
-  users: any
-  displayedColumns: string[] = ['id', 'firstname', 'lastname','email','mobile','role'];
+  applicants: any
+  displayedColumns: string[] = ['id', 'firstname', 'lastname','email','mobile'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -40,15 +40,14 @@ export class UserListComponent implements OnInit {
   }
 
 
-  getAlluser()
+  getAllAppliant()
   {
-    this.userservice.getAllUser().subscribe(data=>{
-      this.users=data;
+    this.userservice.getAllApplicant().subscribe(data=>{
+      this.applicants=data;
       console.log(data);
-      this.dataSource = new MatTableDataSource(this.users);
+      this.dataSource = new MatTableDataSource(this.applicants);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
   }
-
 }

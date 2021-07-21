@@ -1,85 +1,154 @@
 <div class="container">
-    <h1> Loan Applicantion Form </h1>
-    <div class="row">
+    <h1 class="text-center text-muted"> Loan Applicantion Form </h1>
 
-        <div class="col-md-6 offset-md-3">
-            <mat-card class="mt-5">
+    <mat-card class="mt-5">
 
-                <div class="container text-center">
+        <div>
 
 
-                    <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div formGroupName="loanType">
 
-                        <div formGroupName="person">
-
-                            <mat-form-field class="example-full-width" appearance="outline">
-                                <mat-label>Firstname </mat-label>
-                                <input matInput type="text" formControlName="firstname" required name="firstname">
-                            </mat-form-field>
-
-                            <mat-form-field class="example-full-width" appearance="outline">
-                                <mat-label>Lastname </mat-label>
-                                <input matInput type="text" formControlName="lastname" required name="lastname">
-                            </mat-form-field>
-
-
-                            
-
-                            <mat-form-field class="example-full-width" appearance="outline">
-                                <mat-label>Email </mat-label>
-                                <input matInput type="text" formControlName="email" required name="email">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Select Loan Type</mat-label>
+                                <mat-select formControlName="id">
+                                    <mat-option *ngFor="let loanType of loanTypes"   [value]="loanType.id">
+                                        {{loanType.loanTitle}}
+                                    </mat-option>
+                                </mat-select>
                             </mat-form-field>
 
 
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div formGroupName="electronicItem">
+
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Select Electronic Item</mat-label>
+                                <mat-select formControlName="id">
+                                    <mat-option *ngFor="let electronicItem of electronicItems"  [value]="electronicItem.id">
+                                        {{electronicItem.productName}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+
+                        </div>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+<h3 class="text-warning m-2">Banking Details </h3>
+                <div formGroupName="bankDetails">
+
+                    <div class="row">
+                        <div class="col-md-6">
                             <mat-form-field class="example-full-width" appearance="outline">
-                                <mat-label>Mobile </mat-label>
-                                <input matInput type="text" formControlName="mobile" required name="mobile">
+                                <mat-label>Bank Name </mat-label>
+                                <input matInput type="text" formControlName="bankName" required>
                             </mat-form-field>
 
                         </div>
+                        <div class="col-md-6">
 
-                        <mat-form-field class="example-full-width" appearance="outline">
-                            <mat-label>Username </mat-label>
-                            <input matInput type="text" formControlName="username" required name="username">
-                        </mat-form-field>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Branch Name </mat-label>
+                                <input matInput type="text" formControlName="branchName" required >
+                            </mat-form-field>
+        
 
-                        <mat-form-field class="example-full-width" appearance="outline">
-                            <mat-label>Password</mat-label>
-                            <input matInput type="password" required formControlName="password" name="password">
-                        </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Ifcs Code </mat-label>
+                                <input matInput type="text" formControlName="ifcsNo" required >
+                            </mat-form-field>
+
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Account Type </mat-label>
+                                <input matInput type="text" formControlName="accountType" required >
+                            </mat-form-field>
+                            
+                        </div>
+                    </div>
+                  
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Account No </mat-label>
+                                <input matInput type="text" formControlName="accountNO" required >
+                            </mat-form-field>
+
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Average Credit Balance </mat-label>
+                                <input matInput type="text" formControlName="averageCreditBalance" required >
+                            </mat-form-field>
+                            
+                        </div>
+                    </div>
 
 
-
-                        <mat-form-field class="example-full-width" appearance="outline">
-                            <mat-label>Aadhar </mat-label>
-                            <input matInput type="text" formControlName="aadhar" required name="email">
-                        </mat-form-field>
-
-
-                        <mat-form-field class="example-full-width" appearance="outline">
-                            <mat-label>Pan </mat-label>
-                            <input matInput type="text" formControlName="pan" required name="mobile">
-                        </mat-form-field>
-
-                        <button type="submit" mat-raised-button color="primary" class="btn  btn-block m-2 ">
-                            <span>Register </span>
-                        </button>
-
-                    </form>
-
-
-
-
+                   
                 </div>
-                <mat-divider>
-                </mat-divider>
 
-                <button routerLink="/register" class="btn btn-success  btn-block mt-3">
-                    Create New Account
+                <mat-divider></mat-divider>
+                <h3 class="text-warning m-2">Income  Details </h3>
+                                <div formGroupName="incomeStatement">
+                
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label>Gross Salary  </mat-label>
+                                                <input matInput type="text" formControlName="grossSalary" required>
+                                            </mat-form-field>
+                
+                                        </div>
+                                        <div class="col-md-6">
+                
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label> Net Salary </mat-label>
+                                                <input matInput type="text" formControlName="Netsalary" required >
+                                            </mat-form-field>
+                        
+                
+                                        </div>
+                                    </div>
+                
+                                   
+                                  
+                
+                                   
+                
+                                   
+                                </div>
+                
+
+
+
+
+                <button type="submit" mat-raised-button color="primary" class="btn  btn-block m-2 ">
+                    <span>Apply Loan </span>
                 </button>
 
-            </mat-card>
+            </form>
+
+
+
+
         </div>
-    </div>
+
+    </mat-card>
+
+
 </div>

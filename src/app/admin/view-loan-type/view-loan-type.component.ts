@@ -5,18 +5,18 @@ import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  selector: 'app-view-loan-type',
+  templateUrl: './view-loan-type.component.html',
+  styleUrls: ['./view-loan-type.component.css']
 })
-export class UserListComponent implements OnInit {
+export class ViewLoanTypeComponent implements OnInit {
 
   ngOnInit(): void {
-    this.getAlluser();
+    this.getAllLoanTypeItem();
   }
 
-  users: any
-  displayedColumns: string[] = ['id', 'firstname', 'lastname','email','mobile','role'];
+  loanTypes: any
+  displayedColumns: string[] = ['id', 'loanTitle', 'loanDetail'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -27,7 +27,8 @@ export class UserListComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-  
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -39,15 +40,15 @@ export class UserListComponent implements OnInit {
     }
   }
 
+ 
 
-  getAlluser()
+  getAllLoanTypeItem()
   {
-    this.userservice.getAllUser().subscribe(data=>{
-      this.users=data;
+    this.userservice.getLoanType().subscribe(data=>{
+      this.loanTypes=data;
       console.log(data);
-      this.dataSource = new MatTableDataSource(this.users);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      this.dataSource = new MatTableDataSource(this.loanTypes);
+
     })
   }
 

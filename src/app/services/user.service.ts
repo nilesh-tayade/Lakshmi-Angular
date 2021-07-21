@@ -47,6 +47,15 @@ getApplicationForms():Observable<any>
   return this.http.get<any>("http://localhost:8080/form/")
 }
 
+getApplicationFormsByApplicant(id:number):Observable<any>
+{
+  return this.http.get<any>("http://localhost:8080/form/applicant/"+id)
+}
+
+applyLoan(form:any):Observable<any>
+{
+  return this.http.post<any>("http://localhost:8080/form/",form);
+}
 
 RegisteUser(applicant:any):Observable<any>
 {
@@ -90,4 +99,32 @@ getAllApplicant()
 {
   return this.http.get("http://localhost:8080/applicant/");
 }
+
+
+getAllElectroniItems()
+{
+  return this.http.get("http://localhost:8080/electronicItem/")
+}
+
+getLoanType()
+{
+  return this.http.get("http://localhost:8080/loanType/")
+}
+
+getAllUser()
+{
+  return this.http.get("http://localhost:8080/user/")
+}
+
+saveLoanType(loanType:any)
+{
+  return this.http.post("http://localhost:8080/loanType/",loanType)
+}
+
+saveElectronicItem(electronicItem:any)
+{
+  return this.http.post("http://localhost:8080/electronicItem/",electronicItem)
+}
+
+
 }

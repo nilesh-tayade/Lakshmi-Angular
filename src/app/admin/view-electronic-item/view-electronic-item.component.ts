@@ -5,18 +5,19 @@ import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  selector: 'app-view-electronic-item',
+  templateUrl: './view-electronic-item.component.html',
+  styleUrls: ['./view-electronic-item.component.css']
 })
-export class UserListComponent implements OnInit {
+export class ViewElectronicItemComponent implements OnInit {
+
 
   ngOnInit(): void {
-    this.getAlluser();
+    this.getAllElectronicItem();
   }
 
-  users: any
-  displayedColumns: string[] = ['id', 'firstname', 'lastname','email','mobile','role'];
+  electronicItems: any
+  displayedColumns: string[] = ['id', 'company', 'productName', 'serialId', 'price'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -27,7 +28,8 @@ export class UserListComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-  
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -40,15 +42,17 @@ export class UserListComponent implements OnInit {
   }
 
 
-  getAlluser()
+  getAllElectronicItem()
   {
-    this.userservice.getAllUser().subscribe(data=>{
-      this.users=data;
+    this.userservice.getAllElectroniItems().subscribe(data=>{
+      this.electronicItems=data;
       console.log(data);
-      this.dataSource = new MatTableDataSource(this.users);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      this.dataSource = new MatTableDataSource(this.electronicItems);
+
     })
   }
-
 }
+
+
+
+
