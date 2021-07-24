@@ -100,6 +100,11 @@ getAllApplicant()
   return this.http.get("http://localhost:8080/applicant/");
 }
 
+getAllApplicantByBranch(id:number)
+{
+  return this.http.get("http://localhost:8080/applicant/branch/"+id);
+}
+
 
 getAllElectroniItems()
 {

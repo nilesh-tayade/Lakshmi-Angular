@@ -25,5 +25,9 @@ getFiles()
     })
   }
  
+send(file:any){
+
+}
+
 
 }

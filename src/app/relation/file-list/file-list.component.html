@@ -13,6 +13,7 @@
             <td>Loan Disbursed</td>
 
                 <td>Rejected</td>
+                <td>Action</td>
 
           </tr>
 
@@ -32,7 +33,7 @@
             <td>{{file.loanDisbursed ==true ? 'Disbursed' : 'Pending'}}</td>
 
             <td>{{file.loanRejected ==true ? 'Rejected' : '--'}}</td>
-
+<td><button  (click)="send(file.id)"> Send To RE</button></td>
           </tr>
 
         </tbody>

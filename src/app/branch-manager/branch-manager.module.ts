@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ApplicantRoutingModule } from './applicant-routing.module';
-import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
-import { MyFilesComponent } from './my-files/my-files.component';
+import { BranchManagerRoutingModule } from './branch-manager-routing.module';
+import { BranchManagerDashboardComponent } from './branch-manager-dashboard/branch-manager-dashboard.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
@@ -13,22 +18,15 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
   declarations: [
-    ApplicantDashboardComponent,
-    MyFilesComponent
+    BranchManagerDashboardComponent
   ],
   imports: [
     CommonModule,
-    ApplicantRoutingModule,
+    BranchManagerRoutingModule,
     MatButtonModule,
     MatListModule,
     MatCardModule,
@@ -46,4 +44,4 @@ import { MatButtonModule } from '@angular/material/button';
     MatDialogModule
   ]
 })
-export class ApplicantModule { }
+export class BranchManagerModule { }

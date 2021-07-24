@@ -9,17 +9,20 @@ import { UserService } from 'src/app/services/user.service';
 export class ApplicantListComponent implements OnInit {
 
   constructor(public userService:UserService) { }
-
+re:any
   ngOnInit(): void {
+  this.re =this.userService.getLoggedInUser();
+  console.log(this.re);
+  console.log(this.re.branch.id);
   this.getApplicant();
-  
+
   }
 
 applicants:any
 
 getApplicant()
   {
-    this.userService.getAllApplicant().subscribe(data=>{
+    this.userService.getAllApplicantByBranch(this.re.branch.id).subscribe(data=>{
       this.applicants=data
       console.log(data);
       
