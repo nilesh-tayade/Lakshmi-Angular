@@ -19,12 +19,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { DisbursedFilesComponent } from './disbursed-files/disbursed-files.component';
+import { LoanDetailsComponent } from './loan-details/loan-details.component';
 
 
 @NgModule({
   declarations: [
     ApplicantDashboardComponent,
-    MyFilesComponent
+    MyFilesComponent,
+    DisbursedFilesComponent,
+    LoanDetailsComponent
   ],
   imports: [
     CommonModule,

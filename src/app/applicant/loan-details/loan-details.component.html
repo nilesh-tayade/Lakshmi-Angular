@@ -1,0 +1,31 @@
+<p>Electronic Item Details </p>
+<p> Company : {{form.electronicItem.company}}</p>
+<p> Product Name : {{form.electronicItem.productName}}</p>
+
+<p> Price : {{form.electronicItem.company}}</p>
+
+<p> Item : {{form.electronicItem.price}}</p>
+
+
+
+
+<div class="row">
+    <h3 class="text-center text-warning">Loan Details </h3>
+    <div class="col-md-6">
+        <div>
+            <p>Loan Amount : {{form.loandetails.loanAmount}}</p>
+            <p>File Charge : {{form.loandetails.fileCharges}}</p>
+            <p>Insurance Amount : {{form.loandetails.insurane}}</p>
+            <p>Total Amount : {{form.loandetails.totalAmount}}</p>
+            <p>Installement : {{form.loandetails.installment}}</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            <p>No of Installment : {{form.loandetails.noOfInstallemnt}}</p>
+            <p>Down Payment : {{form.loandetails.dp}}</p>
+            <p>Remaining Installment : {{form.loandetails.remainingInstallment}}</p>
+            <p>Remaining Payment : {{(form.loandetails.installment)*(form.loandetails.remainingInstallment)}}</p>
+        </div>
+    </div>
+</div>

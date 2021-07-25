@@ -15,11 +15,20 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { OpsFilesComponent } from './ops-files/ops-files.component';
+import { CreditRejectedFileComponent } from './credit-rejected-file/credit-rejected-file.component';
+import { OpsCreditApprovedComponent } from './ops-credit-approved/ops-credit-approved.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
-    OperationDashboardComponent
+    OperationDashboardComponent,
+    OpsFilesComponent,
+    CreditRejectedFileComponent,
+    OpsCreditApprovedComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +44,10 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     MatRadioModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule
   ]
 })
 export class OperationModule { }

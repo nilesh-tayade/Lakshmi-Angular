@@ -18,6 +18,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ApplicantListComponent } from './applicant-list/applicant-list.component';
+import { CivilOkFileComponent } from './civil-ok-file/civil-ok-file.component';
+import { RelApprovedFilesComponent } from './rel-approved-files/rel-approved-files.component';
+import { RelDisbursedFilesComponent } from './rel-disbursed-files/rel-disbursed-files.component';
+import { RejectedFilesComponent } from './rejected-files/rejected-files.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -25,7 +32,11 @@ import { ApplicantListComponent } from './applicant-list/applicant-list.componen
     RelationDashboardComponent,
     ApplyLoanComponent,
     FileListComponent,
-    ApplicantListComponent
+    ApplicantListComponent,
+    CivilOkFileComponent,
+    RelApprovedFilesComponent,
+    RelDisbursedFilesComponent,
+    RejectedFilesComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +52,10 @@ import { ApplicantListComponent } from './applicant-list/applicant-list.componen
     ReactiveFormsModule,
     MatRadioModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule
   ]
 })
 export class RelationModule { }

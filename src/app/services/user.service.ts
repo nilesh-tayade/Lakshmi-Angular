@@ -47,10 +47,27 @@ getApplicationForms():Observable<any>
   return this.http.get<any>("http://localhost:8080/form/")
 }
 
+getDisbursedForms():Observable<any>
+{
+  return this.http.get<any>("http://localhost:8080/form/loanDisbursed/")
+}
+
+getApplicationFormById(id:number):Observable<any>
+{
+  return this.http.get<any>("http://localhost:8080/form/"+id);
+}
+
+
 getApplicationFormsByApplicant(id:number):Observable<any>
 {
   return this.http.get<any>("http://localhost:8080/form/applicant/"+id)
 }
+
+getApplicationFormsByApplicantDisbursed(id:number):Observable<any>
+{
+  return this.http.get<any>("http://localhost:8080/form/applicantDisbursed/"+id)
+}
+
 
 applyLoan(form:any):Observable<any>
 {
@@ -72,6 +89,13 @@ getCreditScoreApprovedUser()
 return this.http.get("http://localhost:8080/form/creditOk/");
 }
 
+getCreditScoreRejectedUser()
+{
+return this.http.get("http://localhost:8080/form/creditRejected/");
+}
+
+
+
 getLoanApprovedFiles()
 {
 return this.http.get("http://localhost:8080/form/loanApproved/");
@@ -82,17 +106,36 @@ approveCreditScoreUser(id:number,form)
 return this.http.put("http://localhost:8080/form/creditOk/"+id,form);
 }
 
+rejectCreditScore(id:number,form)
+{
+return this.http.put("http://localhost:8080/form/creditReject/"+id,form);
+}
+
 verifyDocuments(id:number,form)
 {
 return this.http.put("http://localhost:8080/form/documentVerified/"+id,form);
 }
+
+rejectDocuments(id:number,form)
+{
+return this.http.put("http://localhost:8080/form/docReject/"+id,form);
+}
+
 
 disburseLoan(id:number,form)
 {
 return this.http.put("http://localhost:8080/form/loanDisbursed/"+id,form);
 }
 
+rejectLoan(id:number,form)
+{
+return this.http.put("http://localhost:8080/form/loanRejected/"+id,form);
+}
 
+getRejectLoanFile()
+{
+return this.http.get("http://localhost:8080/form/rejected/");
+}
 
 
 getAllApplicant()
