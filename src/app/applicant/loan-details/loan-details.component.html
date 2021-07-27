@@ -1,31 +1,52 @@
-<p>Electronic Item Details </p>
-<p> Company : {{form.electronicItem.company}}</p>
-<p> Product Name : {{form.electronicItem.productName}}</p>
+<div style="display:flex; flex-direction: row;" class="mt-3">
+    <mat-card class="example-card m-2">
+      
+<h3 class="text-center text-primary">Electronic Item Details </h3>
+<mat-divider></mat-divider>
+<p> Company :  <button mat-button color="accent">{{form.electronicItem.company}}</button></p>
+<p> Product :<button mat-button color="primary">{{form.electronicItem.productName}}</button> </p>
 
-<p> Price : {{form.electronicItem.company}}</p>
+<p> Price   : <button mat-button color="accent">{{form.electronicItem.price|currency:'INR'}}</button></p>
 
-<p> Item : {{form.electronicItem.price}}</p>
+
+    </mat-card>
+    <mat-card class="example-card m-2">
+        <h3 class="text-center text-warning">Loan Details </h3>
+        <mat-divider></mat-divider>
+
+                <p>Loan Amount :<button mat-button color="accent"> {{form.loandetails.loanAmount |currency:'INR'}}</button></p>
+                <p>File Charge :<button mat-button color="accent">{{form.loandetails.fileCharges|currency:'INR'}}</button> </p>
+                <p>Insurance Amount :<button mat-button color="accent">{{form.loandetails.insurane|currency:'INR'}}</button> </p>
+                <p>Total Amount :<button mat-button color="accent">{{form.loandetails.totalAmount|currency:'INR'}}</button> </p>
+                <p>Installement :<button mat-button color="accent">{{form.loandetails.installment|currency:'INR'}}</button> </p>
+           
+       </mat-card>
+
+       <mat-card class="example-card m-2">
+        <h3 class="text-center text-warning">Installemnt Details </h3>
+        <mat-divider></mat-divider>
+
+        <p>No of Installment :<button mat-button color="accent"> {{form.loandetails.noOfInstallment}}</button> </p>
+        <p>Down Payment :<button mat-button color="accent">{{form.loandetails.dp|currency:'INR'}}</button> </p>
+        <p>Remaining Installment :<button mat-button color="accent"> {{form.loandetails.remainingInstallment}}</button> </p>
+        <p>Remaining Payment :<button mat-button color="accent"> {{(form.loandetails.installment)*(form.loandetails.remainingInstallment)|currency:'INR'}}</button> </p>
+        <mat-divider></mat-divider>
+
+        <button mat-raised-button class="m-2" color='primary' (click)="payInst(form)">Pay Installement</button>
+       </mat-card>
+
+ </div>
+
+
 
 
 
 
 <div class="row">
-    <h3 class="text-center text-warning">Loan Details </h3>
+    
     <div class="col-md-6">
         <div>
-            <p>Loan Amount : {{form.loandetails.loanAmount}}</p>
-            <p>File Charge : {{form.loandetails.fileCharges}}</p>
-            <p>Insurance Amount : {{form.loandetails.insurane}}</p>
-            <p>Total Amount : {{form.loandetails.totalAmount}}</p>
-            <p>Installement : {{form.loandetails.installment}}</p>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div>
-            <p>No of Installment : {{form.loandetails.noOfInstallemnt}}</p>
-            <p>Down Payment : {{form.loandetails.dp}}</p>
-            <p>Remaining Installment : {{form.loandetails.remainingInstallment}}</p>
-            <p>Remaining Payment : {{(form.loandetails.installment)*(form.loandetails.remainingInstallment)}}</p>
+           
         </div>
     </div>
 </div>

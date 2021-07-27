@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { TechnicalCallerHeadRoutingModule } from './technical-caller-head-routing.module';
 import { TchDashboardComponent } from './tch-dashboard/tch-dashboard.component';
 import { TchAllFilesComponent } from './tch-all-files/tch-all-files.component';
-import { TchGoodApplicantsComponent } from './tch-good-applicants/tch-good-applicants.component';
 import { TchBadApplicantsComponent } from './tch-bad-applicants/tch-bad-applicants.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -27,7 +26,6 @@ import { MatDialogModule } from '@angular/material/dialog';
   declarations: [
     TchDashboardComponent,
     TchAllFilesComponent,
-    TchGoodApplicantsComponent,
     TchBadApplicantsComponent
   ],
   imports: [

@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tch-all-files',
@@ -16,7 +17,7 @@ export class TchAllFilesComponent implements OnInit {
   }
   files: any;
 
-  displayedColumns: string[] = ['id', 'firstname', 'lastname','email','electronicItem','price','civilOk','isDocOk','approved','disbursed'];
+  displayedColumns: string[] = ['id', 'firstname', 'lastname','installment','reInstallment','remAmount','markGood','markBad'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -39,7 +40,7 @@ export class TchAllFilesComponent implements OnInit {
 
 getFiles()
   {
-    this.userService.getApplicationForms().subscribe(data=>{
+    this.userService.getDisbursedForms().subscribe(data=>{
       this.files=data
       console.log(data);
       this.dataSource = new MatTableDataSource(this.files);
@@ -48,6 +49,27 @@ getFiles()
     })
   }
  
+  markGood(file: any) {
+    this.userService.markGood(file.id, file).subscribe((data: any) => {
+      console.log(data);
+      this.getFiles();
+
+      Swal.fire('Success...', 'Applicant is Marked As Good', 'success')
+    }, (error) => {
+      Swal.fire('Oops...', 'Something went wrong!', 'error')
+    });
+  }
+
+  markBad(file: any) {
+    this.userService.markBad(file.id, file).subscribe((data: any) => {
+      console.log(data);
+      this.getFiles();
+
+      Swal.fire('Success...', 'Applicant is Marked as Bad Applicant', 'success')
+    }, (error) => {
+      Swal.fire('Oops...', 'Something went wrong!', 'error')
+    });
+  }
 
 
 

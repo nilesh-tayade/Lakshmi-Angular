@@ -11,11 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ApplicantListComponent implements OnInit {
 
-re:any
   ngOnInit(): void {
-  this.re =this.userService.getLoggedInUser();
-  console.log(this.re);
-  console.log(this.re.branch.id);
+ 
   this.getApplicant();
 
   }
@@ -25,7 +22,7 @@ applicants:any
 
 
 
-displayedColumns: string[] = ['id', 'firstname', 'lastname','email','mobile','aadhar','pancard','action'];
+displayedColumns: string[] = ['id', 'firstname', 'lastname','email','mobile','aadhar','pancard','history','action'];
 dataSource: MatTableDataSource<any>;
 
 @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -52,7 +49,7 @@ applyFilter(event: Event) {
 
 getApplicant()
   {
-    this.userService.getAllApplicantByBranch(this.re.branch.id).subscribe(data=>{
+    this.userService.getAllApplicant().subscribe(data=>{
       this.applicants=data
       console.log(data);
       this.dataSource = new MatTableDataSource(this.applicants);

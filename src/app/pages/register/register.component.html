@@ -1,7 +1,30 @@
-<div class="container">
-    <h1> Register Here </h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" routerLink="/home">Lakshmi Finance</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/login">login </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/register">Register </a>
+          </li>
+       
+      </ul>
     
-            <mat-card class="mt-5">
+    </div>
+  </nav>
+<div >
+
+<div class="container-fluid login">
+    
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+         <mat-card class="mt-10">
 
                 <div class="container text-center">
 
@@ -49,38 +72,49 @@
 
                           
 
-                          
-
-                            
-
-                          
-
-
                         </div>
 
-                        <mat-form-field class="example-full-width" appearance="outline">
-                            <mat-label>Username </mat-label>
-                            <input matInput type="text" formControlName="username" required name="username">
-                        </mat-form-field>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Username </mat-label>
+                                    <input matInput type="text" formControlName="username" required name="username">
+                                </mat-form-field>
 
-                        <mat-form-field class="example-full-width" appearance="outline">
-                            <mat-label>Password</mat-label>
-                            <input matInput type="password" required formControlName="password" name="password">
-                        </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Password</mat-label>
+                                    <input matInput type="password" required formControlName="password" name="password">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        
 
-
+                      
+                        <div class="row">
+                            <div class="col-md-6">
+                                
 
                         <mat-form-field class="example-full-width" appearance="outline">
                             <mat-label>Aadhar </mat-label>
                             <input matInput type="text" formControlName="aadhar" required name="email">
                         </mat-form-field>
 
+                            </div>
+                            <div class="col-md-6">
 
-                        <mat-form-field class="example-full-width" appearance="outline">
-                            <mat-label>Pan </mat-label>
-                            <input matInput type="text" formControlName="pan" required name="mobile">
-                        </mat-form-field>
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Pan </mat-label>
+                                    <input matInput type="text" formControlName="pan" required name="mobile">
+                                </mat-form-field>
+        
+                            </div>
+                        </div>
 
+
+
+                      
                         <button type="submit" mat-raised-button color="primary" class="btn  btn-block m-2 ">
                             <span>Register </span>
                         </button>
@@ -91,13 +125,12 @@
 
 
                 </div>
-                <mat-divider>
-                </mat-divider>
+               
 
-                <button routerLink="/register" class="btn btn-success  btn-block mt-3">
-                    Create New Account
-                </button>
+                
 
             </mat-card>
-       
+        </div>
+    </div>
+         
 </div>

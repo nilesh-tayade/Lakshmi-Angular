@@ -1,0 +1,22 @@
+.example-full-width{
+    width: 90%;
+}
+
+.login{
+background: url(../../../assets/login.jpg);
+background-size: cover;
+background-position: center;
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+}
+
+.container-fluid{
+    height: 100vh;
+  
+}
+.mt-10{
+    margin-top: 85px;
+}

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6">
           <mat-card>
-             <h1 class="text-center text-danger"> Bad Applicant</h1>
+             <h1 class="text-center text-warning"> Applicant List</h1>
      
           </mat-card>
      
@@ -32,51 +32,42 @@
             <!-- Progress Column -->
             <ng-container matColumnDef="firstname">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
-                <td mat-cell *matCellDef="let row"> {{row.applicant.person.firstname}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.person.firstname}} </td>
             </ng-container>
   
             <!-- Name Column -->
             <ng-container matColumnDef="lastname">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> last Name </th>
-                <td mat-cell *matCellDef="let row"> {{row.applicant.person.lastname}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.person.lastname}} </td>
             </ng-container>
   
             <!-- Fruit Column -->
             <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-                <td mat-cell *matCellDef="let row"> {{row.applicant.person.email}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.person.email}} </td>
             </ng-container>
   
-            <ng-container matColumnDef="electronicItem">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Electronic Item </th>
-                <td mat-cell *matCellDef="let row"> {{row.electronicItem.productName}} </td>
+            <ng-container matColumnDef="mobile">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </th>
+                <td mat-cell *matCellDef="let row"> {{row.person.mobile}} </td>
             </ng-container>
   
-            <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Loan Amount </th>
-                <td mat-cell *matCellDef="let row"> {{row.electronicItem.price}} </td>
-            </ng-container>
+            <ng-container matColumnDef="aadhar">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Aadhar </th>
+              <td mat-cell *matCellDef="let row"> {{row.aadhar}} </td>
+          </ng-container>
   
-            <ng-container matColumnDef="civilOk">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Credit Ok </th>
-                <td mat-cell *matCellDef="let row"> {{row.creditOk ==true ? 'Approved' : 'Pending'}} </td>
-            </ng-container>
+          <ng-container matColumnDef="pancard">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Pancard </th>
+              <td mat-cell *matCellDef="let row"> {{row.pan}} </td>
+          </ng-container>
   
-            <ng-container matColumnDef="isDocOk">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Document Veriied </th>
-                <td mat-cell *matCellDef="let row"> {{row.documentVerified ==true ? 'Approved' : 'Pending'}} </td>
-            </ng-container>
-  
-            <ng-container matColumnDef="approved">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Approved </th>
-                <td mat-cell *matCellDef="let row"> {{row.loanApproved ==true ? 'Approved' : 'Pending'}} </td>
-            </ng-container>
-  
-            <ng-container matColumnDef="disbursed">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Disbursed </th>
-                <td mat-cell *matCellDef="let row"> {{row.loanDisbursed ==true ? 'Disbursed' : 'Pending'}} </td>
-            </ng-container>
-  
+          <ng-container matColumnDef="remark">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> History </th>
+              <td mat-cell *matCellDef="let row">
+                {{row.remark}}
+              </td>
+          </ng-container>
   
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

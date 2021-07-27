@@ -42,40 +42,34 @@
             </ng-container>
   
             <!-- Fruit Column -->
-            <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-                <td mat-cell *matCellDef="let row"> {{row.applicant.person.email}} </td>
+            <ng-container matColumnDef="installment">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Installment </th>
+                <td mat-cell *matCellDef="let row"> {{row.loandetails.installment}} </td>
             </ng-container>
   
-            <ng-container matColumnDef="electronicItem">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Electronic Item </th>
-                <td mat-cell *matCellDef="let row"> {{row.electronicItem.productName}} </td>
+            <ng-container matColumnDef="reInstallment">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Remaining Installement </th>
+                <td mat-cell *matCellDef="let row"> {{row.loandetails.remainingInstallment}} </td>
             </ng-container>
   
-            <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Loan Amount </th>
-                <td mat-cell *matCellDef="let row"> {{row.electronicItem.price}} </td>
+            <ng-container matColumnDef="remAmount">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Remaining  Amount </th>
+                <td mat-cell *matCellDef="let row">  {{(row.loandetails.installment)*(row.loandetails.remainingInstallment)}} </td>
             </ng-container>
   
-            <ng-container matColumnDef="civilOk">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Credit Ok </th>
-                <td mat-cell *matCellDef="let row"> {{row.creditOk ==true ? 'Approved' : 'Pending'}} </td>
+            <ng-container matColumnDef="markGood">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> mark Good </th>
+                <td mat-cell *matCellDef="let row">  <button class="btn btn-sm btn-success" (click)="markGood(row)"> Mark Good
+                </button> </td>
             </ng-container>
   
-            <ng-container matColumnDef="isDocOk">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Document Veriied </th>
-                <td mat-cell *matCellDef="let row"> {{row.documentVerified ==true ? 'Approved' : 'Pending'}} </td>
+            <ng-container matColumnDef="markBad">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Mark Bad </th>
+                <td mat-cell *matCellDef="let row">  <button class="btn btn-sm btn-danger" (click)="markBad(row)"> Mark Bad
+                </button> </td>
             </ng-container>
   
-            <ng-container matColumnDef="approved">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Approved </th>
-                <td mat-cell *matCellDef="let row"> {{row.loanApproved ==true ? 'Approved' : 'Pending'}} </td>
-            </ng-container>
-  
-            <ng-container matColumnDef="disbursed">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Disbursed </th>
-                <td mat-cell *matCellDef="let row"> {{row.loanDisbursed ==true ? 'Disbursed' : 'Pending'}} </td>
-            </ng-container>
+          
   
   
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

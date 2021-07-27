@@ -89,6 +89,12 @@ if(this.userService.user.role=="admin")
   true;
 }
 
+if(this.userService.user.role=="technicalCallerHead")
+{
+  this.router.navigate(['/header/caller-head']);
+  true;
+}
+
 if(this.userService.user.role=="branchManager")
 {
   this.router.navigate(['/header/branch-manager']);

@@ -10,11 +10,11 @@ export class UserService {
 
   constructor(private http:HttpClient,private router:Router) { }
 user:any;
-  baseUrl="http://localhost:8080/user/login/"
+  baseUrl="http://localhost:8080/"
 
 loginUser(loginrequest:any):Observable<any>
 {
-return this.http.post(this.baseUrl,loginrequest);
+return this.http.post(this.baseUrl+"user/login/",loginrequest);
 }
 
 loginUserInApp(user :any)
@@ -44,134 +44,149 @@ logoutUser(){
 
 getApplicationForms():Observable<any>
 {
-  return this.http.get<any>("http://localhost:8080/form/")
+  return this.http.get<any>(this.baseUrl+"form/")
 }
 
 getDisbursedForms():Observable<any>
 {
-  return this.http.get<any>("http://localhost:8080/form/loanDisbursed/")
+  return this.http.get<any>(this.baseUrl+"form/loanDisbursed/")
 }
 
 getApplicationFormById(id:number):Observable<any>
 {
-  return this.http.get<any>("http://localhost:8080/form/"+id);
+  return this.http.get<any>(this.baseUrl+"form/"+id);
 }
 
 
 getApplicationFormsByApplicant(id:number):Observable<any>
 {
-  return this.http.get<any>("http://localhost:8080/form/applicant/"+id)
+  return this.http.get<any>(this.baseUrl+"form/applicant/"+id)
 }
 
 getApplicationFormsByApplicantDisbursed(id:number):Observable<any>
 {
-  return this.http.get<any>("http://localhost:8080/form/applicantDisbursed/"+id)
+  return this.http.get<any>(this.baseUrl+"form/applicantDisbursed/"+id)
 }
 
 
 applyLoan(form:any):Observable<any>
 {
-  return this.http.post<any>("http://localhost:8080/form/",form);
+  return this.http.post<any>(this.baseUrl+"form/",form);
 }
 
 RegisteUser(applicant:any):Observable<any>
 {
-return this.http.post("http://localhost:8080/applicant/",applicant);
+return this.http.post(this.baseUrl+"applicant/",applicant);
 }
 
 getCreditScoreUser(id:number,form)
 {
-return this.http.put("http://localhost:8080/form/creditScore/"+id,form);
+return this.http.put(this.baseUrl+"form/creditScore/"+id,form);
 }
 
 getCreditScoreApprovedUser()
 {
-return this.http.get("http://localhost:8080/form/creditOk/");
+return this.http.get(this.baseUrl+"form/creditOk/");
 }
 
 getCreditScoreRejectedUser()
 {
-return this.http.get("http://localhost:8080/form/creditRejected/");
+return this.http.get(this.baseUrl+"form/creditRejected/");
 }
 
 
 
 getLoanApprovedFiles()
 {
-return this.http.get("http://localhost:8080/form/loanApproved/");
+return this.http.get(this.baseUrl+"form/loanApproved/");
 }
 
 approveCreditScoreUser(id:number,form)
 {
-return this.http.put("http://localhost:8080/form/creditOk/"+id,form);
+return this.http.put(this.baseUrl+"form/creditOk/"+id,form);
 }
 
 rejectCreditScore(id:number,form)
 {
-return this.http.put("http://localhost:8080/form/creditReject/"+id,form);
+return this.http.put(this.baseUrl+"form/creditReject/"+id,form);
 }
 
 verifyDocuments(id:number,form)
 {
-return this.http.put("http://localhost:8080/form/documentVerified/"+id,form);
+return this.http.put(this.baseUrl+"form/documentVerified/"+id,form);
 }
 
 rejectDocuments(id:number,form)
 {
-return this.http.put("http://localhost:8080/form/docReject/"+id,form);
+return this.http.put(this.baseUrl+"form/docReject/"+id,form);
 }
 
 
 disburseLoan(id:number,form)
 {
-return this.http.put("http://localhost:8080/form/loanDisbursed/"+id,form);
+return this.http.put(this.baseUrl+"form/loanDisbursed/"+id,form);
+}
+
+payInstallent(id:number,form)
+{
+return this.http.put(this.baseUrl+"form/payInstallemnt/"+id,form);
+}
+
+markGood(id:number,form)
+{
+return this.http.put(this.baseUrl+"form/markGood/"+id,form);
+}
+
+markBad(id:number,form)
+{
+return this.http.put(this.baseUrl+"form/markBad/"+id,form);
 }
 
 rejectLoan(id:number,form)
 {
-return this.http.put("http://localhost:8080/form/loanRejected/"+id,form);
+return this.http.put(this.baseUrl+"form/loanRejected/"+id,form);
 }
 
 getRejectLoanFile()
 {
-return this.http.get("http://localhost:8080/form/rejected/");
+return this.http.get(this.baseUrl+"form/rejected/");
 }
 
 
 getAllApplicant()
 {
-  return this.http.get("http://localhost:8080/applicant/");
+  return this.http.get(this.baseUrl+"applicant/");
 }
 
 getAllApplicantByBranch(id:number)
 {
-  return this.http.get("http://localhost:8080/applicant/branch/"+id);
+  return this.http.get(this.baseUrl+"applicant/branch/"+id);
 }
 
 
 getAllElectroniItems()
 {
-  return this.http.get("http://localhost:8080/electronicItem/")
+  return this.http.get(this.baseUrl+"electronicItem/")
 }
 
 getLoanType()
 {
-  return this.http.get("http://localhost:8080/loanType/")
+  return this.http.get(this.baseUrl+"loanType/")
 }
 
 getAllUser()
 {
-  return this.http.get("http://localhost:8080/user/")
+  return this.http.get(this.baseUrl+"user/")
 }
 
 saveLoanType(loanType:any)
 {
-  return this.http.post("http://localhost:8080/loanType/",loanType)
+  return this.http.post(this.baseUrl+"loanType/",loanType)
 }
 
 saveElectronicItem(electronicItem:any)
 {
-  return this.http.post("http://localhost:8080/electronicItem/",electronicItem)
+  return this.http.post(this.baseUrl+"electronicItem/",electronicItem)
 }
 
 
